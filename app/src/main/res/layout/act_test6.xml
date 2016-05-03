@@ -24,7 +24,7 @@
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="single" />
+            android:text="concatWith" />
 
         <Button
             android:id="@+id/test6_btn3"
@@ -46,6 +46,18 @@
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="reduce3" />
+        <Button
+            android:id="@+id/test6_btn6"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="concat1" />
+        <Button
+            android:id="@+id/test6_btn7"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="concat2" />
 
 
         <Button

@@ -13,25 +13,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-        <Button
-            android:id="@+id/test8_btn1"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:text="concat1" />
-
-        <Button
-            android:id="@+id/test8_btn2"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="concat2" />
-
-        <Button
-            android:id="@+id/test8_btn3"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="concatWith" />
+        
 
         <Button
             android:id="@+id/test8_btn4"

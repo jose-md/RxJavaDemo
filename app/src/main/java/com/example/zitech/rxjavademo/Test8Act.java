@@ -30,15 +30,8 @@ public class Test8Act extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.test8_btn1://concat1
-                concat1();
-                break;
-            case R.id.test8_btn2://concat2
-                concat2();
-                break;
-            case R.id.test8_btn3://concatWith
-                concatWith();
-                break;
+
+
             case R.id.test8_btn4://repeat
                 repeat();
                 break;
@@ -100,56 +93,6 @@ public class Test8Act extends Activity implements View.OnClickListener {
     }
 
 
-    private void concat1() {
-        Observable<Integer> seq1 = Observable.range(0, 3);
-        Observable<Integer> seq2 = Observable.range(10, 3);
-        Observable.concat(seq1, seq2)
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
-
-    private void concat2() {
-        Observable<String> words = Observable.just(
-                "First",
-                "Second",
-                "Third",
-                "Fourth",
-                "Fifth",
-                "Sixth"
-        );
-        Observable
-                .concat(words.groupBy(new Func1<String, Object>() {
-                    @Override
-                    public Object call(String s) {
-                        return s.charAt(0);
-                    }
-                }))
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
-
-    private void concatWith() {
-        Observable<Integer> seq1 = Observable.range(0, 3);
-        Observable<Integer> seq2 = Observable.range(10, 3);
-        Observable<Integer> seq3 = Observable.just(20);
-
-        seq1.concatWith(seq2)
-                .concatWith(seq3)
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
 
     private void repeat() {
         Observable.just(1, 2)
