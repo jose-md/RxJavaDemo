@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <Button
+            android:id="@+id/test7_btn1"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:text="map" />
+
+        <Button
+            android:id="@+id/test7_btn2"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="cast" />
+
+        <Button
+            android:id="@+id/test7_btn4"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="timestamp" />
+
+        <Button
+            android:id="@+id/test7_btn5"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="timeInterval" />
+
+        <Button
+            android:id="@+id/test7_btn6"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="materialize" />
+
+        <Button
+            android:id="@+id/test7_btn7"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="dematerialize" />
+
+        <Button
+            android:id="@+id/test7_btn8"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="flatMap1:转换" />
+
+        <Button
+            android:id="@+id/test7_btn9"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="flatMap2:过滤" />
+
+        <Button
+            android:id="@+id/test7_btn10"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="flatMap3:异步" />
+
+        <Button
+            android:id="@+id/test7_btn11"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="concatMap" />
+
+        <Button
+            android:id="@+id/test7_btn12"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="switchMap" />
+
+        <Button
+            android:id="@+id/test7_btn13"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="flatMapIterable1" />
+
+        <Button
+            android:id="@+id/test7_btn14"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="flatMapIterable2" />
+        <Button
+            android:id="@+id/test7_btn15"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="buffer" /><Button
+            android:id="@+id/test7_btn16"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="window" />
+
+
+    </LinearLayout>
+</ScrollView>
+

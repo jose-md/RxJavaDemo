@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <Button
+            android:id="@+id/test3_btn1"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:clickable="false"
+            android:text="creat" />
+
+        <Button
+            android:id="@+id/test3_btn2"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="just" />
+
+        <Button
+            android:id="@+id/test3_btn3"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="from" />
+
+
+        <Button
+            android:id="@+id/test3_btn5"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="defer" />
+
+        <Button
+            android:id="@+id/test3_btn6"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="range" />
+
+        <Button
+            android:id="@+id/test3_btn7"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="interval" />
+
+        <Button
+            android:id="@+id/test3_btn8"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="timer1" />
+
+        <Button
+            android:id="@+id/test3_btn9"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="timer2" />
+
+        <Button
+            android:id="@+id/test3_btn10"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="empty" />
+
+        <Button
+            android:id="@+id/test3_btn11"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="never" />
+
+        <Button
+            android:id="@+id/test3_btn12"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="error" />
+
+    </LinearLayout>
+</ScrollView>
+
