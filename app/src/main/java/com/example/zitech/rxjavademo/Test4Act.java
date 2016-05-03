@@ -72,9 +72,7 @@ public class Test4Act extends Activity implements View.OnClickListener {
             case R.id.test4_btn13://sample
                 sample();
                 break;
-            case R.id.test4_btn14://timeout
-                timeout();
-                break;
+
             case R.id.test4_btn15://debounce
                 debounce();
                 break;
@@ -438,28 +436,6 @@ public class Test4Act extends Activity implements View.OnClickListener {
 
     private void sample() {
 
-    }
-
-    private void timeout() {
-        Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
-        Subscription subscription = values
-                .timeout(300, TimeUnit.MILLISECONDS)
-                .subscribe(new Observer<Long>() {
-                    @Override
-                    public void onCompleted() {
-                        log("Complete!");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        log(e.getMessage().toString());
-                    }
-
-                    @Override
-                    public void onNext(Long aLong) {
-                        log(aLong + "");
-                    }
-                });
     }
 
     private void debounce() {

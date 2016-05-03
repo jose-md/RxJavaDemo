@@ -14,105 +14,75 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
-            android:id="@+id/test4_btn1"
+            android:id="@+id/test12_btn1"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
-            android:text="filter" />
-
-
+            android:text="test1" />
 
         <Button
-            android:id="@+id/test4_btn2"
+            android:id="@+id/test12_btn2"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="distinct" />
+            android:text="test2" />
 
         <Button
-            android:id="@+id/test4_btn3"
+            android:id="@+id/test12_btn3"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="distinct(keySelector)" />
+            android:text="test3" />
 
         <Button
-            android:id="@+id/test4_btn4"
+            android:id="@+id/test12_btn4"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="distinctUntilChanged" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn5"
+            android:id="@+id/test12_btn5"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="distinctUntilChanged(keySelector)" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn6"
+            android:id="@+id/test12_btn6"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="firstAndLast" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn7"
+            android:id="@+id/test12_btn7"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="ignoreElements" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn8"
+            android:id="@+id/test12_btn8"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="takeAndSkip" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn9"
+            android:id="@+id/test12_btn9"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="takeLastAndSkipLast" />
+            android:text="----" />
 
         <Button
-            android:id="@+id/test4_btn10"
+            android:id="@+id/test12_btn10"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="takeWhileAndSkipWhile" />
+            android:text="----" />
 
-        <Button
-            android:id="@+id/test4_btn11"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="takeUntilAndSkipUntil" />
-
-        <Button
-            android:id="@+id/test4_btn12"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="elementAt" />
-
-        <Button
-            android:id="@+id/test4_btn13"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="sample" />
-
-
-        <Button
-            android:id="@+id/test4_btn15"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="debounce" />
-
+   
 
     </LinearLayout>
 </ScrollView>

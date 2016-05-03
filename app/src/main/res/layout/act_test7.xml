@@ -26,19 +26,6 @@
             android:layout_marginTop="10dp"
             android:text="cast" />
 
-        <Button
-            android:id="@+id/test7_btn4"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="timestamp" />
-
-        <Button
-            android:id="@+id/test7_btn5"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="timeInterval" />
 
         <Button
             android:id="@+id/test7_btn6"

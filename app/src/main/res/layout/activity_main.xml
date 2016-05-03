@@ -27,14 +27,14 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="操作符：创建Observable" />
+        android:text="创建操作符" />
 
     <Button
         android:id="@+id/main_btn4"
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="过滤Observable" />
+        android:text="过滤操作符" />
 
     <Button
         android:id="@+id/main_btn5"
@@ -55,22 +55,45 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="转换Observable" />
+        android:text="转换操作符" />
 
     <Button
         android:id="@+id/main_btn8"
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="组合Observable" />
+        android:text="组合操作符 " />
+
     <Button
         android:id="@+id/main_btn9"
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="副作用" />
+        android:text="辅助操作符" />
+
     <Button
         android:id="@+id/main_btn10"
+        style="@style/CommonButton"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:text="----" />
+
+    <Button
+        android:id="@+id/main_btn11"
+        style="@style/CommonButton"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:text="----" />
+
+    <Button
+        android:id="@+id/main_btn12"
+        style="@style/CommonButton"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:text="副作用" />
+
+    <Button
+        android:id="@+id/main_btn13"
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"

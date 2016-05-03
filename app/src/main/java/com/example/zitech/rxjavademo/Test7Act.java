@@ -46,12 +46,7 @@ public class Test7Act extends Activity implements View.OnClickListener {
             case R.id.test7_btn2://cast
                 cast();
                 break;
-            case R.id.test7_btn4://timestamp
-                timestamp();
-                break;
-            case R.id.test7_btn5://timeInterval
-                timeInterval();
-                break;
+
             case R.id.test7_btn6://materialize
                 materialize();
                 break;
@@ -130,29 +125,6 @@ public class Test7Act extends Activity implements View.OnClickListener {
 
 
 
-    private void timestamp() {
-        Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
-        values.take(3)
-                .timestamp()
-                .subscribe(new Action1<Timestamped>() {
-                    @Override
-                    public void call(Timestamped mTimestamped) {
-                        log(mTimestamped.toString());
-                    }
-                });
-    }
-
-    private void timeInterval() {
-        Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
-        values.take(3)
-                .timeInterval()
-                .subscribe(new Action1<TimeInterval>() {
-                    @Override
-                    public void call(TimeInterval mTimeInterval) {
-                        log(mTimeInterval.toString());
-                    }
-                });
-    }
 
     private void materialize() {
         Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);

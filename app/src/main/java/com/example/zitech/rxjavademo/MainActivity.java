@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn2://基本使用
                 startActivity(new Intent(mContext,Test2Act.class));
                 break;
-            case R.id.main_btn3://操作符：创建Observable
+            case R.id.main_btn3://操作符：创建操作符
                 startActivity(new Intent(mContext,Test3Act.class));
                 break;
-            case R.id.main_btn4://操作符：过滤Observable
+            case R.id.main_btn4://操作符：过滤操作符
                 startActivity(new Intent(mContext,Test4Act.class));
                 break;
             case R.id.main_btn5://操作符：条件和布尔操作符
@@ -80,16 +80,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn6://操作符：算术和聚合操作符
                 startActivity(new Intent(mContext,Test6Act.class));
                 break;
-            case R.id.main_btn7://操作符：转换Observable
+            case R.id.main_btn7://操作符：转换操作符
                 startActivity(new Intent(mContext,Test7Act.class));
                 break;
-            case R.id.main_btn8://操作符：组合Observable
+            case R.id.main_btn8://操作符：组合操作符
                 startActivity(new Intent(mContext,Test8Act.class));
                 break;
-            case R.id.main_btn9://副作用
-                startActivity(new Intent(mContext,Test9Act.class));
+            case R.id.main_btn9://操作符：辅助操作符
+                startActivity(new Intent(mContext, Test12Act.class));
                 break;
             case R.id.main_btn10://
+                break;
+            case R.id.main_btn11://
+                startActivity(new Intent(mContext, Test12Act.class));
+                break;
+            case R.id.main_btn12://副作用
+                startActivity(new Intent(mContext,Test12Act.class));
+                break;
+            case R.id.main_btn13://
                 break;
         }
     }
