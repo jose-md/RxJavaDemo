@@ -68,7 +68,7 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="----" />
+        android:text="副作用" />
     <Button
         android:id="@+id/main_btn10"
         style="@style/CommonButton"
