@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
+import rx.Subscriber;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func2;
@@ -84,7 +85,14 @@ public class Test8Act extends Activity implements View.OnClickListener {
                 zipWith();
                 break;
             case R.id.test8_btn19://combineLatest
+                Log.d("pepe","pefsd pe");
                 combineLatest();
+                break;
+            case R.id.test8_btn20://join
+                join();
+                break;
+            case R.id.test8_btn21://groupJoin
+                groupJoin();
                 break;
 
 
@@ -515,7 +523,110 @@ public class Test8Act extends Activity implements View.OnClickListener {
                 });
     }
 
+    private void join() {
+        //产生0,2,4,6,8数列
+        Observable<Long> observable1 = Observable.timer(0, 1000, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong) {
+                        return aLong * 2;
+                    }
+                }).take(5);
+
+        //产生0,3,6,9,12数列
+        Observable<Long> observable2 = Observable.timer(500, 1000, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong) {
+                        return aLong * 3;
+                    }
+                }).take(5);
+
+        observable1.join(observable2, new Func1<Long, Observable<Long>>() {
+            @Override
+            public Observable<Long> call(Long aLong) {
+                //使Observable持续600毫秒有效
+                return Observable.just(aLong).delay(600, TimeUnit.MILLISECONDS);
+            }
+        }, new Func1<Long, Observable<Long>>() {
+            @Override
+            public Observable<Long> call(Long aLong) {
+                //使Observable持续600毫秒有效
+                return Observable.just(aLong).delay(600, TimeUnit.MILLISECONDS);
+            }
+        }, new Func2<Long, Long, Long>() {
+            @Override
+            public Long call(Long aLong, Long aLong2) {
+                return aLong + aLong2;
+            }
+        })
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        log(aLong + "");
+                    }
+                });
+    }
+
+    private void groupJoin() {
+        //产生100,110,120,130,140数列
+        Observable<Long> observable1 = Observable.timer(0, 1000, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong) {
+                        log(System.currentTimeMillis()+"--1--");
+                        return aLong*10+100;
+                    }
+                }).take(5);
+
+        //产生1,3,5,7,9数列
+        Observable<Long> observable2 = Observable.timer(500, 1000, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong) {
+                        log(System.currentTimeMillis()+"--2--");
+                        return aLong*2+1;
+                    }
+                }).take(5);
+
+        observable1.groupJoin(observable2, new Func1<Long, Observable<Long>>() {
+            @Override
+            public Observable<Long> call(Long aLong) {
+                //使Observable持续1600毫秒有效
+                return Observable.just(aLong).delay(1600, TimeUnit.MILLISECONDS);
+            }
+        }, new Func1<Long, Observable<Long>>() {
+            @Override
+            public Observable<Long> call(Long aLong) {
+                //使Observable持续600毫秒有效
+                return Observable.just(aLong).delay(600, TimeUnit.MILLISECONDS);
+            }
+        }, new Func2<Long, Observable<Long>, Observable<Long>>() {
+            @Override
+            public Observable<Long> call(final Long aLong, Observable<Long> observable) {
+                return observable.map(new Func1<Long, Long>() {
+                    @Override
+                    public Long call(Long aLong2) {
+                        return aLong + aLong2;
+                    }
+                });
+            }
+        })
+                .subscribe(new Action1<Observable<Long>>() {
+                    @Override
+                    public void call(Observable<Long> longObservable) {
+                        longObservable.subscribe(new Action1<Long>() {
+                            @Override
+                            public void call(Long aLong) {
+                                log(aLong +"");
+                            }
+                        });
+                    }
+                });
+    }
+
     private void log(String string) {
         Log.d("pepe", string);
+
     }
 }
