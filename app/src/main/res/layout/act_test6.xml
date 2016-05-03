@@ -46,12 +46,14 @@
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="reduce3" />
+
         <Button
             android:id="@+id/test6_btn6"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="concat1" />
+
         <Button
             android:id="@+id/test6_btn7"
             style="@style/CommonButton"
@@ -95,7 +97,19 @@
             android:layout_marginTop="10dp"
             android:text="toMultimap" />
 
+        <Button
+            android:id="@+id/test6_btn13"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="amb" />
 
+        <Button
+            android:id="@+id/test6_btn14"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="ambWith" />
 
 
     </LinearLayout>

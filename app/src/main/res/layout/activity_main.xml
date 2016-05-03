@@ -41,14 +41,14 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="检查Observable" />
+        android:text="条件和布尔操作符" />
 
     <Button
         android:id="@+id/main_btn6"
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="聚合Observable" />
+        android:text="算术和聚合操作符" />
 
     <Button
         android:id="@+id/main_btn7"

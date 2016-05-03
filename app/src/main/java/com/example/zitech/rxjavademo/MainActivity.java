@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn4://操作符：过滤Observable
                 startActivity(new Intent(mContext,Test4Act.class));
                 break;
-            case R.id.main_btn5://操作符：检查Observable
+            case R.id.main_btn5://操作符：条件和布尔操作符
                 startActivity(new Intent(mContext,Test5Act.class));
                 break;
-            case R.id.main_btn6://操作符：聚合Observable
+            case R.id.main_btn6://操作符：算术和聚合操作符
                 startActivity(new Intent(mContext,Test6Act.class));
                 break;
             case R.id.main_btn7://操作符：转换Observable

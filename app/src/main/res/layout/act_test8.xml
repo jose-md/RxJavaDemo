@@ -13,7 +13,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-        
+
 
         <Button
             android:id="@+id/test8_btn4"
@@ -36,19 +36,6 @@
             android:layout_marginTop="10dp"
             android:text="startWith" />
 
-        <Button
-            android:id="@+id/test8_btn7"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="amb" />
-
-        <Button
-            android:id="@+id/test8_btn8"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="ambWith" />
 
         <Button
             android:id="@+id/test8_btn9"

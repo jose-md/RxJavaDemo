@@ -30,8 +30,6 @@ public class Test8Act extends Activity implements View.OnClickListener {
 
     public void onClick(View view) {
         switch (view.getId()) {
-
-
             case R.id.test8_btn4://repeat
                 repeat();
                 break;
@@ -41,12 +39,7 @@ public class Test8Act extends Activity implements View.OnClickListener {
             case R.id.test8_btn6://startWith
                 startWith();
                 break;
-            case R.id.test8_btn7://amb
-                amb();
-                break;
-            case R.id.test8_btn8://ambWith
-                ambWith();
-                break;
+
             case R.id.test8_btn9://merge
                 merge();
                 break;
@@ -151,56 +144,7 @@ public class Test8Act extends Activity implements View.OnClickListener {
                 });
     }
 
-    private void amb() {
-        Observable.amb(
-                Observable.timer(100, TimeUnit.MILLISECONDS)
-                        .map(new Func1<Long, Object>() {
-                            @Override
-                            public Object call(Long aLong) {
-                                return "First";
-                            }
-                        }),
-                Observable.timer(50, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
-                    @Override
-                    public Object call(Long aLong) {
-                        return "Second";
-                    }
-                }))
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
 
-    private void ambWith() {
-        Observable.timer(100, TimeUnit.MILLISECONDS)
-                .map(new Func1<Long, Object>() {
-                    @Override
-                    public Object call(Long aLong) {
-                        return "First";
-                    }
-                })
-                .ambWith(Observable.timer(50, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
-                    @Override
-                    public Object call(Long aLong) {
-                        return "Second";
-                    }
-                }))
-                .ambWith(Observable.timer(70, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
-                    @Override
-                    public Object call(Long aLong) {
-                        return "Third";
-                    }
-                }))
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
 
     private void merge() {
         Observable.merge(

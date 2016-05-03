@@ -77,6 +77,12 @@ public class Test6Act extends Activity implements View.OnClickListener {
             case R.id.test6_btn12://toMultimap
                 toMultimap();
                 break;
+            case R.id.test6_btn13://amb
+                amb();
+                break;
+            case R.id.test6_btn14://ambWith
+                ambWith();
+                break;
 
 
         }
@@ -391,7 +397,56 @@ public class Test6Act extends Activity implements View.OnClickListener {
                     }
                 });
     }
+    private void amb() {
+        Observable.amb(
+                Observable.timer(100, TimeUnit.MILLISECONDS)
+                        .map(new Func1<Long, Object>() {
+                            @Override
+                            public Object call(Long aLong) {
+                                return "First";
+                            }
+                        }),
+                Observable.timer(50, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        return "Second";
+                    }
+                }))
+                .subscribe(new Action1<Object>() {
+                    @Override
+                    public void call(Object o) {
+                        log(o.toString());
+                    }
+                });
+    }
 
+    private void ambWith() {
+        Observable.timer(100, TimeUnit.MILLISECONDS)
+                .map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        return "First";
+                    }
+                })
+                .ambWith(Observable.timer(50, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        return "Second";
+                    }
+                }))
+                .ambWith(Observable.timer(70, TimeUnit.MILLISECONDS).map(new Func1<Long, Object>() {
+                    @Override
+                    public Object call(Long aLong) {
+                        return "Third";
+                    }
+                }))
+                .subscribe(new Action1<Object>() {
+                    @Override
+                    public void call(Object o) {
+                        log(o.toString());
+                    }
+                });
+    }
     private class Person {
         public final String name;
         public final Integer age;
