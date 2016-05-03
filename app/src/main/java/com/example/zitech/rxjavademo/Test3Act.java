@@ -66,6 +66,7 @@ public class Test3Act extends Activity implements View.OnClickListener {
             case R.id.test3_btn12://error
                 error();
                 break;
+
         }
     }
     private void just(){

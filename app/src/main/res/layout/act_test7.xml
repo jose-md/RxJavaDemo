@@ -102,17 +102,38 @@
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="flatMapIterable2" />
+
         <Button
             android:id="@+id/test7_btn15"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="buffer" /><Button
+            android:text="buffer" />
+
+        <Button
             android:id="@+id/test7_btn16"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="window" />
+        <Button
+            android:id="@+id/test7_btn17"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="scan1" />
+        <Button
+            android:id="@+id/test7_btn18"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="scan2" />
+        <Button
+            android:id="@+id/test7_btn19"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="groupBy" />
 
 
     </LinearLayout>

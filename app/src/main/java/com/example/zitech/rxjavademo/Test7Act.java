@@ -18,9 +18,12 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func2;
+import rx.observables.GroupedObservable;
 import rx.schedulers.Schedulers;
 import rx.schedulers.TimeInterval;
 import rx.schedulers.Timestamped;
+import rx.subjects.ReplaySubject;
+import rx.subjects.Subject;
 
 /**
  * Created by pepe on 2016/4/27.
@@ -81,6 +84,15 @@ public class Test7Act extends Activity implements View.OnClickListener {
                 break;
             case R.id.test7_btn16://window
                 window();
+                break;
+            case R.id.test7_btn17://scan1
+                scan1();
+                break;
+            case R.id.test7_btn18://scan2
+                scan2();
+                break;
+            case R.id.test7_btn19://groupBy
+                groupBy();
                 break;
 
 
@@ -417,6 +429,143 @@ public class Test7Act extends Activity implements View.OnClickListener {
                     }
                 });
     }
+
+    private void scan1() {
+        Observable<Integer> values = Observable.range(0, 5);
+        values.scan(new Func2<Integer, Integer, Integer>() {
+            @Override
+            public Integer call(Integer integer, Integer integer2) {
+                return integer + integer2;
+            }
+        })
+//                .takeLast()//实现reduce
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onCompleted() {
+                        log("Sum:Complete!");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        log("Sum:" + e.getMessage().toString());
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        log("Sum:" + integer);
+                    }
+                });
+    }
+
+    private void scan2() {
+        Subject<Integer, Integer> values = ReplaySubject.create();
+        values
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onCompleted() {
+                        log("Values:Complete!");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        log("Values:" + e.getMessage().toString());
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        log("Values:" + integer);
+                    }
+                });
+        values
+                .scan(new Func2<Integer, Integer, Integer>() {
+                    @Override
+                    public Integer call(Integer integer, Integer integer2) {
+                        return (integer < integer2) ? integer : integer2;
+                    }
+                })
+                .distinctUntilChanged()
+                .subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onCompleted() {
+                        log("Min:Complete!");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        log("Min:" + e.getMessage().toString());
+                    }
+
+                    @Override
+                    public void onNext(Integer integer) {
+                        log("Min:" + integer);
+                    }
+                });
+        values.onNext(2);
+        values.onNext(3);
+        values.onNext(1);
+        values.onNext(4);
+        values.onCompleted();
+    }
+    private void groupBy(){
+        Observable<String> values = Observable.just(
+                "first",
+                "second",
+                "third",
+                "forth",
+                "fifth",
+                "sixth"
+        );
+        values.groupBy(new Func1<String, Object>() {
+            @Override
+            public Object call(String s) {
+                return s.charAt(0);
+            }
+        })
+//                .subscribe(new Action1<GroupedObservable<Object, String>>() {
+//                    @Override
+//                    public void call(final GroupedObservable<Object, String> objectStringGroupedObservable) {
+//                        objectStringGroupedObservable.last().subscribe(new Action1<String>() {
+//                            @Override
+//                            public void call(String s) {
+//                                log( objectStringGroupedObservable.getKey() +":" + s);
+//                            }
+//                        });
+//                    }
+//                });
+                .subscribe(new Action1<GroupedObservable<Object, String>>() {
+                    @Override
+                    public void call(final GroupedObservable<Object, String> result) {
+                        result.subscribe(new Action1<String>() {
+                            @Override
+                            public void call(String value) {
+                                log("key:" + result.getKey() +", value:" + value);
+                            }
+                        });
+                    }
+                });
+//                .flatMap(new Func1<GroupedObservable<Object, String>, Observable<?>>() {
+//                    @Override
+//                    public Observable<?> call(final GroupedObservable<Object, String> objectStringGroupedObservable) {
+//                        return objectStringGroupedObservable.last().map(new Func1<String, Object>() {
+//                            @Override
+//                            public Object call(String s) {
+//                                return objectStringGroupedObservable.getKey() +":" + s;
+//                            }
+//                        });
+//                    }
+//                })
+//                .subscribe(new Action1<Object>() {
+//                    @Override
+//                    public void call(Object o) {
+//                        log(o.toString());
+//                    }
+//                });
+
+
+
+
+    }
+
 
     private void log(String string) {
         Log.d("pepe", string);

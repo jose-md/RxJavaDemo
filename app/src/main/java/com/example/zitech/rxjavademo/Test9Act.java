@@ -2,7 +2,6 @@ package com.example.zitech.rxjavademo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.RequiresPermission;
 import android.util.Log;
 import android.view.View;
 
@@ -88,12 +87,12 @@ public class Test9Act extends Activity{
     }
     private void test3(){
         Observable<String> values = Observable.just("No", "side", "effects", "please");
-
+        //这里用了scan的一个重载方法，传的new Indexed<String>(0, null)作为额外添加的第一个参数，定义了scan返回的类型，并且这个参数直接返回给indexed
         Observable<Indexed<String>> indexed =
-                values.scan(
-                        new Indexed<String>(0, null), new Func2<Indexed<String>, String, Indexed<String>>() {
+                        values.scan(new Indexed<String>(0, null), new Func2<Indexed<String>, String, Indexed<String>>() {
                             @Override
                             public Indexed<String> call(Indexed<String> stringIndexed, String s) {
+                                log(stringIndexed.index+"");
                                 return new Indexed<String>(stringIndexed.index+1, s);
                             }
                         })
