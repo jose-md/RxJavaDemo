@@ -16,6 +16,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func0;
 
@@ -69,8 +70,9 @@ public class Test3Act extends Activity implements View.OnClickListener {
 
         }
     }
-    private void just(){
-        Observable.just(1,2,3)
+
+    private void just() {
+        Observable.just(1, 2, 3)
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onCompleted() {
@@ -84,34 +86,37 @@ public class Test3Act extends Activity implements View.OnClickListener {
 
                     @Override
                     public void onNext(Integer integer) {
-                        log(integer+"");
+                        log(integer + "");
                     }
                 });
     }
-    private void from(){
-        Integer[] items=new Integer[]{1,2,3};
-        List<Integer> list= Arrays.asList(items);
+
+    private void from() {
+        Integer[] items = new Integer[]{1, 2, 3};
+        List<Integer> list = Arrays.asList(items);
         Observable.from(items)
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        log(integer+"");
+                        log(integer + "");
                     }
                 });
 
     }
-    private void repeat(){
-        Observable.just(1,2)
+
+    private void repeat() {
+        Observable.just(1, 2)
 //                .repeat()//无限循环
                 .repeat(2)
                 .subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        log(integer+"");
+                        log(integer + "");
                     }
                 });
     }
-    private void defer(){
+
+    private void defer() {
         Observable<Long> now = Observable.just(System.currentTimeMillis());
 //        Observable<Long> now = Observable.defer(new Func0<Observable<Long>>() {
 //            @Override
@@ -139,21 +144,23 @@ public class Test3Act extends Activity implements View.OnClickListener {
         });
 
     }
-    private void range(){
-        Observable.range(5,3)
-        .subscribe(new Action1<Integer>() {
-            @Override
-            public void call(Integer integer) {
-                log(integer+"");
-            }
-        });
+
+    private void range() {
+        Observable.range(5, 3)
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        log(integer + "");
+                    }
+                });
     }
-    private void interval(){
+
+    private void interval() {
         Subscription subscription = Observable.interval(3, TimeUnit.SECONDS)
                 .subscribe(new Action1<Long>() {
                     @Override
                     public void call(Long aLong) {
-                        log(aLong+"");
+                        log(aLong + "");
                     }
                 });
         try {
@@ -163,59 +170,48 @@ public class Test3Act extends Activity implements View.OnClickListener {
         }
 
     }
-    private void timer1(){
-        Observable.timer(3,TimeUnit.SECONDS)
+
+    private void timer1() {
+        Observable.timer(3, TimeUnit.SECONDS)
                 .subscribe(new Action1<Long>() {
                     @Override
                     public void call(Long aLong) {
-                        log(aLong+"");
+                        log(aLong + "");
                     }
                 });
     }
-    private void timer2(){
-        Observable.timer(4,2,TimeUnit.SECONDS)
+
+    private void timer2() {
+        Observable.timer(4, 2, TimeUnit.SECONDS)
                 .subscribe(new Action1<Long>() {
                     @Override
                     public void call(Long aLong) {
-                        log(aLong+"");
+                        log(aLong + "");
                     }
                 });
     }
-    private void empty(){
+
+    private void empty() {
         Observable<Integer> observable = Observable.empty();
         Subscription subscription = observable.subscribe(new Subscriber<Integer>() {
             public void onCompleted() {
                 log("Complete!");
             }
+
             @Override
             public void onError(Throwable e) {
                 log(e.getMessage().toString());
             }
+
             @Override
             public void onNext(Integer integer) {
-                log(integer+"");
-            }
-        });
-    }
-    private void never(){
-        Observable<Integer> observable = Observable.empty();
-        Subscription subscription = observable.subscribe(new Subscriber<Integer>() {
-            public void onCompleted() {
-                log("Complete!");
-            }
-            @Override
-            public void onError(Throwable e) {
-                log(e.getMessage().toString());
-            }
-            @Override
-            public void onNext(Integer integer) {
-                log(integer+"");
+                log(integer + "");
             }
         });
     }
 
-    private void error(){
-        Observable<Integer> observable =  Observable.error(new Exception("Oops"));
+    private void never() {
+        Observable<Integer> observable = Observable.never();
         Subscription subscription = observable.subscribe(new Subscriber<Integer>() {
             public void onCompleted() {
                 log("Complete!");
@@ -224,9 +220,30 @@ public class Test3Act extends Activity implements View.OnClickListener {
             public void onError(Throwable e) {
                 log(e.getMessage().toString());
             }
+
             @Override
             public void onNext(Integer integer) {
-                log(integer+"");
+                log(integer + "");
+            }
+        });
+    }
+
+
+    private void error() {
+        Observable<Integer> observable = Observable.error(new Exception("Oops"));
+        Subscription subscription = observable.subscribe(new Subscriber<Integer>() {
+            public void onCompleted() {
+                log("Complete!");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                log(e.getMessage().toString());
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                log(integer + "");
             }
         });
     }

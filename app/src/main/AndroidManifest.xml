@@ -20,14 +20,16 @@
         </activity>
         <activity android:name="com.example.zitech.rxjavademo.Demo1Act"/>
         <activity android:name="com.example.zitech.rxjavademo.Demo2Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test2Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test3Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test4Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test5Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test6Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test7Act"/>
-        <activity android:name="com.example.zitech.rxjavademo.Test8Act"/>
+        <activity android:name=".Test2Act"/>
+        <activity android:name=".Test3Act"/>
+        <activity android:name=".Test4Act"/>
+        <activity android:name=".Test5Act"/>
+        <activity android:name=".Test6Act"/>
+        <activity android:name=".Test7Act"/>
+        <activity android:name=".Test8Act"/>
+        <activity android:name=".Test9Act"/>
         <activity android:name=".Test12Act"/>
+        <activity android:name=".Test13Act"/>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data

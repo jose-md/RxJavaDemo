@@ -39,7 +39,6 @@ public class Test8Act extends Activity implements View.OnClickListener {
             case R.id.test8_btn6://startWith
                 startWith();
                 break;
-
             case R.id.test8_btn9://merge
                 merge();
                 break;
@@ -71,7 +70,6 @@ public class Test8Act extends Activity implements View.OnClickListener {
                 zipWith();
                 break;
             case R.id.test8_btn19://combineLatest
-                Log.d("pepe","pefsd pe");
                 combineLatest();
                 break;
             case R.id.test8_btn20://join

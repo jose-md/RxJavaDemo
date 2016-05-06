@@ -87,12 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(mContext,Test8Act.class));
                 break;
             case R.id.main_btn9://操作符：辅助操作符
-                startActivity(new Intent(mContext, Test12Act.class));
+                startActivity(new Intent(mContext, Test9Act.class));
                 break;
-            case R.id.main_btn10://
+            case R.id.main_btn10://副作用
+                startActivity(new Intent(mContext, Test13Act.class));
                 break;
             case R.id.main_btn11://
-                startActivity(new Intent(mContext, Test12Act.class));
                 break;
             case R.id.main_btn12://副作用
                 startActivity(new Intent(mContext,Test12Act.class));

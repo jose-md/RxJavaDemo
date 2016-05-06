@@ -46,13 +46,6 @@ public class Test7Act extends Activity implements View.OnClickListener {
             case R.id.test7_btn2://cast
                 cast();
                 break;
-
-            case R.id.test7_btn6://materialize
-                materialize();
-                break;
-            case R.id.test7_btn7://dematerialize
-                dematerialize();
-                break;
             case R.id.test7_btn8://flatMap1:转换
                 flatMap1();
                 break;
@@ -126,30 +119,7 @@ public class Test7Act extends Activity implements View.OnClickListener {
 
 
 
-    private void materialize() {
-        Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
-        values.take(3)
-                .dematerialize()
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
 
-    private void dematerialize() {
-        Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
-        values.take(3)
-                .materialize()
-                .dematerialize()
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        log(o.toString());
-                    }
-                });
-    }
 
     private void flatMap1() {
         Observable<Integer> values = Observable.range(1, 3);

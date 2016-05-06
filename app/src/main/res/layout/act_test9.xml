@@ -13,14 +13,18 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-
-
         <Button
             android:id="@+id/test9_btn1"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="timeout" />
+            android:text="timeout1" />
+        <Button
+            android:id="@+id/test9_btn21"
+            style="@style/CommonButton"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="10dp"
+            android:text="timeout2" />
         <Button
             android:id="@+id/test9_btn2"
             style="@style/CommonButton"
@@ -38,33 +42,33 @@
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="delay" />
 
         <Button
             android:id="@+id/test9_btn5"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="delaySubscription" />
 
         <Button
             android:id="@+id/test9_btn6"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnEach" />
         <Button
             android:id="@+id/test9_btn7"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnNext" />
         <Button
             android:id="@+id/test9_btn8"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnSubscribe" />
 
 
         <Button
@@ -72,56 +76,56 @@
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnUnSubscribe" />
 
         <Button
             android:id="@+id/test9_btn10"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnError" />
 
         <Button
             android:id="@+id/test9_btn11"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnComplete" />
 
         <Button
             android:id="@+id/test9_btn12"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="doOnTerminate" />
 
         <Button
             android:id="@+id/test9_btn13"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="finallyDo" />
 
         <Button
             android:id="@+id/test9_btn14"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="materialize" />
 
         <Button
             android:id="@+id/test9_btn15"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="dematerialize" />
 
         <Button
             android:id="@+id/test9_btn16"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="using" />
 
         <Button
             android:id="@+id/test9_btn17"
@@ -147,12 +151,7 @@
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="----" />
-        <Button
-            android:id="@+id/test9_btn21"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
+
 
 
     </LinearLayout>

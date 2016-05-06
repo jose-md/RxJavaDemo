@@ -28,20 +28,6 @@
 
 
         <Button
-            android:id="@+id/test7_btn6"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="materialize" />
-
-        <Button
-            android:id="@+id/test7_btn7"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="dematerialize" />
-
-        <Button
             android:id="@+id/test7_btn8"
             style="@style/CommonButton"
             android:layout_width="fill_parent"

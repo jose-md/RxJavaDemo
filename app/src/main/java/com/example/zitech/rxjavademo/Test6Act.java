@@ -90,6 +90,7 @@ public class Test6Act extends Activity implements View.OnClickListener {
 
     private void count() {
         Observable<Integer> values = Observable.range(0, 3);
+//        Observable<Integer> values = Observable.just(1,2,3);
         values.subscribe(new Observer<Integer>() {
             @Override
             public void onCompleted() {
