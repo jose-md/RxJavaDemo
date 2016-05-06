@@ -118,21 +118,21 @@
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="dematerialize" />
+            android:text="serialize" />
 
         <Button
             android:id="@+id/test9_btn16"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="using" />
+            android:text="dematerialize" />
 
         <Button
             android:id="@+id/test9_btn17"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="using" />
         <Button
             android:id="@+id/test9_btn18"
             style="@style/CommonButton"

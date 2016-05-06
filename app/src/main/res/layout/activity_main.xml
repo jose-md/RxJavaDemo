@@ -76,7 +76,7 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="----" />
+        android:text="错误处理" />
 
     <Button
         android:id="@+id/main_btn11"

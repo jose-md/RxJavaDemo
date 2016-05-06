@@ -82,11 +82,17 @@ public class Test9Act extends Activity implements View.OnClickListener {
             case R.id.test9_btn14://materialize
                 materialize();
                 break;
-            case R.id.test9_btn15://dematerialize
-                dematerialize();
+
+            case R.id.test9_btn15://serialize
+                serialize();
                 break;
-            case R.id.test9_btn16://using
+            case R.id.test9_btn16://dematerialize
+                dematerialize();
+
+                break;
+            case R.id.test9_btn17://using
                 using();
+
                 break;
         }
     }
@@ -112,6 +118,7 @@ public class Test9Act extends Activity implements View.OnClickListener {
                     }
                 });
     }
+
     private void timeout2() {
         Observable.create(new Observable.OnSubscribe<Integer>() {
             @Override
@@ -360,6 +367,7 @@ public class Test9Act extends Activity implements View.OnClickListener {
             }
         });
     }
+
     private void materialize() {
         Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
         values.take(3)
@@ -370,6 +378,56 @@ public class Test9Act extends Activity implements View.OnClickListener {
                         log("meterialize:" + notification.getValue() + "--type:" + notification.getKind());
                     }
                 });
+    }
+
+    private void serialize() {
+        Observable<Integer> observable = Observable.create(new Observable.OnSubscribe<Integer>() {
+            @Override
+            public void call(Subscriber<? super Integer> subscriber) {
+                subscriber.onNext(1);
+                subscriber.onNext(2);
+                subscriber.onCompleted();
+                subscriber.onNext(3);
+                subscriber.onCompleted();
+            }
+        })
+//                .cast(Integer.class)
+//                .serialize()
+                    ;
+
+        observable.doOnUnsubscribe(new Action0() {
+            @Override
+            public void call() {
+                log("Unsubscribed");
+            }
+        })
+                .unsafeSubscribe(new Subscriber<Integer>() {
+                    @Override
+                    public void onCompleted() {
+                        log("Complete!");
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
+                    @Override
+                    public void onNext(Integer integer) {
+                    }
+                });
+//        .subscribe(
+//                new Action1<Integer>() {
+//                    @Override
+//                    public void call(Integer integer) {
+//                    }
+//                }, new Action1<Throwable>() {
+//                    @Override
+//                    public void call(Throwable throwable) {
+//                    }
+//                }, new Action0() {
+//                    @Override
+//                    public void call() {
+//                        log("Complete!");
+//                    }
+//                });
     }
 
     private void dematerialize() {
@@ -385,7 +443,7 @@ public class Test9Act extends Activity implements View.OnClickListener {
                 });
     }
 
-    private void using(){
+    private void using() {
         Observable observable = Observable.using(new Func0<Animal>() {
             @Override
             public Animal call() {
@@ -418,11 +476,12 @@ public class Test9Act extends Activity implements View.OnClickListener {
 
             @Override
             public void onNext(Object o) {
-                log("subscriber---onNext"+o.toString());//o是发射的次数统计，可以用timer(4, 2, TimeUnit.SECONDS)测试
+                log("subscriber---onNext" + o.toString());//o是发射的次数统计，可以用timer(4, 2, TimeUnit.SECONDS)测试
             }
         };
         observable.count().subscribe(subscriber);
     }
+
     private class Animal {
         Subscriber subscriber = new Subscriber() {
             @Override
@@ -452,6 +511,7 @@ public class Test9Act extends Activity implements View.OnClickListener {
             subscriber.unsubscribe();
         }
     }
+
     private void log(String string) {
         Log.d("pepe", string);
 
