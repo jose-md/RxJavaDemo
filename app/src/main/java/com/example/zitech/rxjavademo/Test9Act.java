@@ -514,6 +514,5 @@ public class Test9Act extends Activity implements View.OnClickListener {
 
     private void log(String string) {
         Log.d("pepe", string);
-
     }
 }

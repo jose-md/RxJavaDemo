@@ -13,50 +13,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //关于操作符just，将对象或者对象集合转换为一个会发射这些对象的Observable
-        //简单来说就是挨个来,将传入的参数依次发送出来
-//        Observable.just(4,5,6).subscribe(new Subscriber<Integer>() {
-//            @Override
-//            public void onCompleted() {
-//                Log.d("pepe","onCompleted");
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                Log.d("pepe","onError");
-//            }
-//
-//            @Override
-//            public void onNext(Integer integer) {
-//                Log.d("pepe","integer--"+integer);
-//            }
-//        });
-//        Observable.just(1,2,3,4,5,6).filter(new Func1<Integer, Boolean>() {
-//            @Override
-//            public Boolean call(Integer integer) {
-//                return integer%2==1;
-//            }
-//        }).map(new Func1<Integer, Double>() {
-//            @Override
-//            public Double call(Integer integer) {
-//                return Math.sqrt(integer);
-//            }
-//        }).subscribe(new Subscriber<Double>() {
-//            @Override
-//            public void onCompleted() {
-//                Log.d("pepe","onCompleted");
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                Log.d("pepe","onError");
-//            }
-//
-//            @Override
-//            public void onNext(Double aDouble) {
-//                Log.d("pepe","aDouble---"+aDouble);
-//            }
-//        });
     }
 
 

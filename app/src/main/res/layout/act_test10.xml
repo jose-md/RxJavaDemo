@@ -18,33 +18,33 @@
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="OnErrorReturn" />
+            android:text="onErrorReturn" />
 
         <Button
             android:id="@+id/test10_btn2"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="---" />
+            android:text="onErrorResume" />
         <Button
             android:id="@+id/test10_btn3"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="---" />
+            android:text="onExceptionResumeNext" />
         <Button
             android:id="@+id/test10_btn4"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="---" />
+            android:text="retry" />
 
-        <Button
+         <Button
             android:id="@+id/test10_btn5"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="---" />
+        style="@style/CommonButton"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="10dp"
+        android:text="retryWhen" />
 
         <Button
             android:id="@+id/test10_btn6"
@@ -79,8 +79,6 @@
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
             android:text="---" />
-
-
 
 
 
