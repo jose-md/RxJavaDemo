@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn11://
                 break;
             case R.id.main_btn12://副作用
-                startActivity(new Intent(mContext,Test12Act.class));
+                startActivity(new Intent(mContext,Test13Act.class));
                 break;
             case R.id.main_btn13://
                 break;

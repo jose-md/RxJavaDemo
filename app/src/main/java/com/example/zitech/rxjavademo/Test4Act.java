@@ -72,8 +72,14 @@ public class Test4Act extends Activity implements View.OnClickListener {
             case R.id.test4_btn13://sample
                 sample();
                 break;
+            case R.id.test4_btn14://throttleFirst
+                throttleFirst();
+                break;
+            case R.id.test4_btn15://throttleLast
+                throttleLast();
+                break;
 
-            case R.id.test4_btn15://debounce
+            case R.id.test4_btn16://debounce
                 debounce();
                 break;
         }
@@ -105,7 +111,6 @@ public class Test4Act extends Activity implements View.OnClickListener {
                     }
                 });
     }
-
 
 
     private void distinct1() {
@@ -435,6 +440,44 @@ public class Test4Act extends Activity implements View.OnClickListener {
 
 
     private void sample() {
+        Observable.interval(150, TimeUnit.MILLISECONDS)
+                .sample(1, TimeUnit.SECONDS)
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        log(aLong.toString());
+                    }
+                });
+//        Observable.interval(150, TimeUnit.MILLISECONDS)
+//                .sample(Observable.interval(1, TimeUnit.SECONDS))
+//                .subscribe(new Action1<Long>() {
+//                    @Override
+//                    public void call(Long aLong) {
+//                        log(aLong.toString());
+//                    }
+//                });
+    }
+
+    private void throttleFirst() {
+        Observable.interval(150, TimeUnit.MILLISECONDS)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        log(aLong.toString());
+                    }
+                });
+    }
+
+    private void throttleLast() {
+        Observable.interval(150, TimeUnit.MILLISECONDS)
+                .throttleLast(1, TimeUnit.SECONDS)
+                .subscribe(new Action1<Long>() {
+                    @Override
+                    public void call(Long aLong) {
+                        log(aLong.toString());
+                    }
+                });
 
     }
 
