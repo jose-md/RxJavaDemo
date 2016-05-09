@@ -16,6 +16,7 @@ import rx.Subscription;
 import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func1;
+import rx.functions.Func2;
 import rx.schedulers.Schedulers;
 
 /**
@@ -78,7 +79,6 @@ public class Test4Act extends Activity implements View.OnClickListener {
             case R.id.test4_btn15://throttleLast
                 throttleLast();
                 break;
-
             case R.id.test4_btn16://debounce
                 debounce();
                 break;
@@ -482,40 +482,61 @@ public class Test4Act extends Activity implements View.OnClickListener {
     }
 
     private void debounce() {
-        Observable.create(new Observable.OnSubscribe<Integer>() {
-            @Override
-            public void call(Subscriber<? super Integer> subscriber) {
-                if (subscriber.isUnsubscribed()) return;
-                try {
-                    //产生结果的间隔时间分别为100、200、300...900毫秒
-                    for (int i = 1; i < 10; i++) {
-                        subscriber.onNext(i);
-                        Thread.sleep(i * 100);
+//        Observable.create(new Observable.OnSubscribe<Integer>() {
+//            @Override
+//            public void call(Subscriber<? super Integer> subscriber) {
+//                if (subscriber.isUnsubscribed()) return;
+//                try {
+//                    //产生结果的间隔时间分别为100、200、300...900毫秒
+//                    for (int i = 1; i < 10; i++) {
+//                        subscriber.onNext(i);
+//                        Thread.sleep(i * 100);
+//                    }
+//                    subscriber.onCompleted();
+//                } catch (Exception e) {
+//                    subscriber.onError(e);
+//                }
+//            }
+//        }).subscribeOn(Schedulers.newThread())
+//                .debounce(500, TimeUnit.MILLISECONDS)  //超时时间为400毫秒
+//                .subscribe(
+//                        new Action1<Integer>() {
+//                            @Override
+//                            public void call(Integer integer) {
+//                                log("Next:" + integer);
+//                            }
+//                        }, new Action1<Throwable>() {
+//                            @Override
+//                            public void call(Throwable throwable) {
+//                                log("Error:" + throwable.getMessage());
+//                            }
+//                        }, new Action0() {
+//                            @Override
+//                            public void call() {
+//                                log("Complete!");
+//                            }
+//                        });
+
+        Observable.concat(
+                Observable.interval(100, TimeUnit.MILLISECONDS).take(3),
+                Observable.interval(500, TimeUnit.MILLISECONDS).take(3),
+                Observable.interval(100, TimeUnit.MILLISECONDS).take(3)
+        )
+                .scan(0, new Func2<Integer, Long, Integer>() {
+                    @Override
+                    public Integer call(Integer integer, Long aLong) {
+                        return integer+1;
                     }
-                    subscriber.onCompleted();
-                } catch (Exception e) {
-                    subscriber.onError(e);
-                }
-            }
-        }).subscribeOn(Schedulers.newThread())
-                .debounce(500, TimeUnit.MILLISECONDS)  //超时时间为400毫秒
-                .subscribe(
-                        new Action1<Integer>() {
-                            @Override
-                            public void call(Integer integer) {
-                                log("Next:" + integer);
-                            }
-                        }, new Action1<Throwable>() {
-                            @Override
-                            public void call(Throwable throwable) {
-                                log("Error:" + throwable.getMessage());
-                            }
-                        }, new Action0() {
-                            @Override
-                            public void call() {
-                                log("Complete!");
-                            }
-                        });
+                })
+                .debounce(150, TimeUnit.MILLISECONDS)
+                .subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        log(integer.toString());
+                    }
+                });
+
+
     }
 
     private void log(String string) {

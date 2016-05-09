@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.main_btn10://操作符：错误处理
                 startActivity(new Intent(mContext, Test10Act.class));
                 break;
-            case R.id.main_btn11://
+            case R.id.main_btn11://hot&cold
+                startActivity(new Intent(mContext,Test12Act.class));
                 break;
             case R.id.main_btn12://副作用
                 startActivity(new Intent(mContext,Test13Act.class));

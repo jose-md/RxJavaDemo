@@ -83,7 +83,7 @@
         style="@style/CommonButton"
         android:layout_width="fill_parent"
         android:layout_marginTop="10dp"
-        android:text="----" />
+        android:text="hot/cold" />
 
     <Button
         android:id="@+id/main_btn12"

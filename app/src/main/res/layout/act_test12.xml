@@ -17,78 +17,51 @@
             android:id="@+id/test12_btn1"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
-            android:text="---" />
+            android:text="Cold observables" />
 
         <Button
             android:id="@+id/test12_btn2"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="---" />
+            android:text="Hot observables" />
 
         <Button
             android:id="@+id/test12_btn3"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="结束数据流" />
 
         <Button
             android:id="@+id/test12_btn4"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="不结束数据流" />
 
         <Button
             android:id="@+id/test12_btn5"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="refCount" />
 
         <Button
             android:id="@+id/test12_btn6"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="replay" />
 
         <Button
             android:id="@+id/test12_btn7"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="cache" />
 
-        <Button
-            android:id="@+id/test12_btn8"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
 
-        <Button
-            android:id="@+id/test12_btn9"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
-
-        <Button
-            android:id="@+id/test12_btn10"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
-        <Button
-            android:id="@+id/test12_btn11"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
-
-   
 
     </LinearLayout>
 </ScrollView>
