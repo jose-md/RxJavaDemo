@@ -98,10 +98,10 @@ public class Test10Act extends Activity implements View.OnClickListener {
         Observable<String> values = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext("Rx");
-                subscriber.onNext("is");
+                subscriber.onNext("1");
+                subscriber.onNext("2");
 //                subscriber.onError(new Throwable() {}); // 这个为 error 不会捕获
-                subscriber.onError(new Exception("adjective unknown"));// 这个为 Exception 会被捕获
+                subscriber.onError(new Exception("It's a exceptionn"));// 这个为 Exception 会被捕获
             }});
 
         values.onExceptionResumeNext(Observable.just("hard")).subscribe(new Action1<String>() {
@@ -118,15 +118,20 @@ public class Test10Act extends Activity implements View.OnClickListener {
             public void call(Subscriber<? super Integer> subscriber) {
                 subscriber.onNext(random.nextInt() % 20);
                 subscriber.onNext(random.nextInt() % 20);
-                subscriber.onError(new Exception());
+                subscriber.onError(new Exception("It's a exceptionn"));
         }});
 
         values.retry(1).subscribe(new Action1<Integer>() {
-                    @Override
-                    public void call(Integer integer) {
-                        log(integer.toString());
-                    }
-                });
+            @Override
+            public void call(Integer integer) {
+                log(integer.toString());
+            }
+        }, new Action1<Throwable>() {
+            @Override
+            public void call(Throwable throwable) {
+                log(throwable.getMessage().toString());
+            }
+        });
     }
     private void retryWhen(){
         Observable<Integer> source = Observable.create(new Observable.OnSubscribe<Integer>() {
