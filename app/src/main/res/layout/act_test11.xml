@@ -14,73 +14,52 @@
         android:paddingTop="@dimen/activity_vertical_margin">
 
         <Button
-            android:id="@+id/test13_btn1"
+            android:id="@+id/test12_btn1"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
-            android:text="test1" />
+            android:text="Cold observables" />
 
         <Button
-            android:id="@+id/test13_btn2"
+            android:id="@+id/test12_btn2"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="test2" />
+            android:text="Hot observables" />
 
         <Button
-            android:id="@+id/test13_btn3"
+            android:id="@+id/test12_btn3"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="test3" />
+            android:text="unsubscribe_connect" />
 
         <Button
-            android:id="@+id/test13_btn4"
+            android:id="@+id/test12_btn4"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="unsubscribe_subscribe" />
 
         <Button
-            android:id="@+id/test13_btn5"
+            android:id="@+id/test12_btn5"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="refCount" />
 
         <Button
-            android:id="@+id/test13_btn6"
+            android:id="@+id/test12_btn6"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="replay" />
 
         <Button
-            android:id="@+id/test13_btn7"
+            android:id="@+id/test12_btn7"
             style="@style/CommonButton"
             android:layout_width="fill_parent"
             android:layout_marginTop="10dp"
-            android:text="----" />
-
-        <Button
-            android:id="@+id/test13_btn8"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
-
-        <Button
-            android:id="@+id/test13_btn9"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
-
-        <Button
-            android:id="@+id/test13_btn10"
-            style="@style/CommonButton"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="10dp"
-            android:text="----" />
+            android:text="cache" />
 
 
 

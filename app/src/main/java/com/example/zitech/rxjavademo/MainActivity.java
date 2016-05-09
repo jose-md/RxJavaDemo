@@ -6,41 +6,40 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Context mContext=MainActivity.this;
+    private Context mContext = MainActivity.this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-
-
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.main_btn1://关于Observable
                 break;
             case R.id.main_btn2://基本使用
-                startActivity(new Intent(mContext,Test2Act.class));
+                startActivity(new Intent(mContext, Test2Act.class));
                 break;
             case R.id.main_btn3://操作符：创建操作符
-                startActivity(new Intent(mContext,Test3Act.class));
+                startActivity(new Intent(mContext, Test3Act.class));
                 break;
             case R.id.main_btn4://操作符：过滤操作符
-                startActivity(new Intent(mContext,Test4Act.class));
+                startActivity(new Intent(mContext, Test4Act.class));
                 break;
             case R.id.main_btn5://操作符：条件和布尔操作符
-                startActivity(new Intent(mContext,Test5Act.class));
+                startActivity(new Intent(mContext, Test5Act.class));
                 break;
             case R.id.main_btn6://操作符：算术和聚合操作符
-                startActivity(new Intent(mContext,Test6Act.class));
+                startActivity(new Intent(mContext, Test6Act.class));
                 break;
             case R.id.main_btn7://操作符：转换操作符
-                startActivity(new Intent(mContext,Test7Act.class));
+                startActivity(new Intent(mContext, Test7Act.class));
                 break;
             case R.id.main_btn8://操作符：组合操作符
-                startActivity(new Intent(mContext,Test8Act.class));
+                startActivity(new Intent(mContext, Test8Act.class));
                 break;
             case R.id.main_btn9://操作符：辅助操作符
                 startActivity(new Intent(mContext, Test9Act.class));
@@ -49,12 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(mContext, Test10Act.class));
                 break;
             case R.id.main_btn11://hot&cold
-                startActivity(new Intent(mContext,Test12Act.class));
+                startActivity(new Intent(mContext, Test11Act.class));
                 break;
             case R.id.main_btn12://副作用
-                startActivity(new Intent(mContext,Test13Act.class));
+                startActivity(new Intent(mContext, Test12Act.class));
                 break;
-            case R.id.main_btn13://
+            case R.id.main_btn13://与Retrofit的结合
+                startActivity(new Intent(mContext, Test13Act.class));
+                break;
+            case R.id.main_btn14://
                 break;
         }
     }

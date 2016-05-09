@@ -29,6 +29,7 @@
         <activity android:name=".Test8Act"/>
         <activity android:name=".Test9Act"/>
         <activity android:name=".Test10Act"/>
+        <activity android:name=".Test11Act"/>
         <activity android:name=".Test12Act"/>
         <activity android:name=".Test13Act"/>
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
