@@ -9,16 +9,22 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
 import rx.functions.Func0;
+import rx.functions.Func1;
+import rx.functions.Function;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by pepe on 2016/4/26.
@@ -26,6 +32,8 @@ import rx.functions.Func0;
  * Company:小知科技 http://www.zizizizizi.com/
  */
 public class Test3Act extends Activity implements View.OnClickListener {
+
+    private final static String TAG = "Test3Act.class";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,11 +102,87 @@ public class Test3Act extends Activity implements View.OnClickListener {
     private void from() {
         Integer[] items = new Integer[]{1, 2, 3};
         List<Integer> list = Arrays.asList(items);
-        Observable.from(items)
-                .subscribe(new Action1<Integer>() {
+//        Observable.from(items)
+//                .map(new Func1<Integer, String>() {
+//                    @Override
+//                    public String call(Integer integer) {
+//                        return integer + "";
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io()) // subscribeOn the I/O thread
+//                .observeOn(AndroidSchedulers.mainThread()) // observeOn the UI Thread
+//                .subscribe(new Action1<String>() {
+//                    @Override
+//                    public void call(String str) {
+//                        log(str);
+//                    }
+//                });
+
+//        Observable.from(items)
+//                .map(new Func1<Integer, String>() {
+//                    @Override
+//                    public String call(Integer integer) {
+//                        Log.d(TAG, "map 所在的线程，应该是子线程 = " + Thread.currentThread().getName());
+//                        return integer + "";
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io()) // subscribeOn the I/O thread
+//                .doOnSubscribe(new Action0() {
+//                    @Override
+//                    public void call() {
+//                        Log.d(TAG, "第一个 doOnSubscribe，应该是子线程");
+//                        Log.d(TAG, "第二个 doOnSubscribe，线程 = " + Thread.currentThread().getName());
+//                    }
+//                })
+//                .subscribeOn(Schedulers.io()) // subscribeOn the I/O thread
+//                .doOnSubscribe(new Action0() {
+//                    @Override
+//                    public void call() {
+//                        Log.d(TAG, "第一个 doOnSubscribe，应该是主线程");
+//                        Log.d(TAG, "第一个 doOnSubscribe，线程 = " + Thread.currentThread().getName());
+//                    }
+//                })
+//                .subscribeOn(AndroidSchedulers.mainThread()) // subscribeOn the I/O thread
+//                .observeOn(AndroidSchedulers.mainThread()) // observeOn the UI Thread
+//                .subscribe(new Action1<String>() {
+//                    @Override
+//                    public void call(String str) {
+//                        log(str);
+//                    }
+//                });
+
+        Observable.just(4)
+                .subscribeOn(Schedulers.io())
+                .doOnSubscribe(new Action0() {
                     @Override
-                    public void call(Integer integer) {
-                        log(integer + "");
+                    public void call() {
+                        Log.d(TAG, "doOnSubscribe，主线程");
+                        Log.d(TAG, "doOnSubscribe，线程 = " + Thread.currentThread().getName());
+                    }
+                })
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(new Func1<Integer, String>() {
+                    @Override
+                    public String call(Integer integer) {
+                        Log.d(TAG, "map 所在的线程，应该是主线程 = " + Thread.currentThread().getName());
+                        return integer + "";
+                    }
+                })
+                .observeOn(Schedulers.io())
+                .flatMap(new Func1<String, Observable<String>>() {
+                    @Override
+                    public Observable<String> call(String s) {
+                        Log.d(TAG, "flatMap 所在的线程，应该是子线程 = " + Thread.currentThread().getName());
+                        return Observable.just("haha");
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String str) {
+                        Log.d(TAG, "最后回调，主线程 = " + Thread.currentThread().getName());
+                        log(str);
                     }
                 });
 
@@ -216,6 +300,7 @@ public class Test3Act extends Activity implements View.OnClickListener {
             public void onCompleted() {
                 log("Complete!");
             }
+
             @Override
             public void onError(Throwable e) {
                 log(e.getMessage().toString());
